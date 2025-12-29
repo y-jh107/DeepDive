@@ -12,6 +12,7 @@
 }
 
 .header__content {
+    box-sizing: border-box;
     width: 100%;
     max-width: 975px;
     padding: 0 14px;
