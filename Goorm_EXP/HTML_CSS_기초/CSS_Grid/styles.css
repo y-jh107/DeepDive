@@ -1,0 +1,14 @@
+.title h2 {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 4px;
+}
+
+.image {
+    width: 500px;
+    height: 500px;
+}
