@@ -25,6 +25,7 @@ function createNewTodo() {
     inputEl.removeAttribute('disabled');
 
     inputEl.focus();
+    saveToLocalStorage();
 }
 
 function createTodoElement(item) {
@@ -33,6 +34,7 @@ function createTodoElement(item) {
 
     const checkboxEl = document.createElement('input');
     checkboxEl.type = 'checkbox';
+    checkboxEl.checked = item.complete;
 
     if (item.complete) {
         itemEl.classList.add('complete');
@@ -54,6 +56,40 @@ function createTodoElement(item) {
     removeBtnEl.classList.add('material-icons', 'remove-btn');
     removeBtnEl.innerText = 'remove_circles';
 
+    checkboxEl.addEventListener('change', () => {
+        item.complete = checkboxEl.checked;
+
+        if(item.complete) {
+            itemEl.classList.add('complete');
+        } else {
+            itemEl.classList.remove('complete');
+        }
+
+        saveToLocalStorage();
+    });
+
+    inputEl.addEventListener('blur', () => {
+        inputEl.setAttribute('disabled', '');
+
+        saveToLocalStorage();
+    });
+
+    inputEl.addEventListener('input', () => {
+        item.text = inputEl.value;
+    });
+
+    editBtnEl.addEventListener('click', () => {
+        inputEl.removeAttribute('disabled');
+        inputEl.focus();
+    });
+
+    removeBtnEl.addEventListener('click', () => {
+        todos = todos.filter(t => t.id !== item.id)
+
+        itemEl.remove();
+        saveToLocalStorage();
+    });
+
     actionsEl.append(editBtnEl);
     actionsEl.append(removeBtnEl);
 
@@ -63,3 +99,30 @@ function createTodoElement(item) {
 
     return { itemEl, inputEl, editBtnEl, removeBtnEl };
 }
+
+function saveToLocalStorage() {
+    const data = JSON.stringify(todos);
+
+    localStorage.setItem('my_todos', data);
+}
+
+function loadFromLocalStorage() {
+    const data = localStorage.getItem('my_todos');
+
+    if(data) {
+        todos = JSON.parse(data);
+    }
+}
+
+function displayTodos() {
+    loadFromLocalStorage();
+
+    for (let i = 0; i < todos.length; i++) {
+        const item = todos[i];
+        const { itemEl } = createTodoElement(item);
+
+        list.append(itemEl);
+    }
+}
+
+displayTodos();
