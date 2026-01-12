@@ -151,7 +151,11 @@
     <script>
         const $ = {};
 
-        $.qs = document.querySelector.bind(document);
+        $.qs = (sel, parent = document) => parent.querySelector(sel);
+        $.qsa = (sel, parent = document) => parent.querySelectorAll(sel);
+
+        $.find = _.curry($.qs);
+        $.findAll = _.curry($.qsa);
 
         $.el = html => {
             const wrap = document.createElement('div');
@@ -159,9 +163,14 @@
             return wrap.children[0];
         };
 
-        $.append = _.curry((parent, child) => {
-            parent.appendChild(child);
-        });
+        $.append = _.curry((parent, child) => parent.appendChild(child));
+
+        $.closest = _.curry((sel, el) => el.closest(sel));
+
+        $.remove = el => el.parentNode.removeChild(el);
+
+        $.on = (event, f) => els =>
+            each(el => el.addEventListener(event, f), _.isIterable(els) ? els : [els]);
     </script>
 
     <script>
@@ -183,6 +192,7 @@
                 <div class="image">
                     <div class="box"><img src="${img.url}" alt=""></div>
                     <div class="name">${img.name}</div>
+                    <div class="remove">x</div>
                 </div>
                 `, imgs)}
             </div>
@@ -193,7 +203,12 @@
             Images.tmpl,
             $.el,
             $.append($.qs('body')),
-            console.log);
+            $.findAll('.remove'),
+            $.on('click', e => _.go(
+                e.currentTarget,
+                $.closest('.imgae'),
+                $.remove
+            )));
     </script>
 </body>
 
