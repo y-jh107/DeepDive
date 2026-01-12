@@ -171,6 +171,8 @@
 
         $.on = (event, f) => els =>
             _.each(el => el.addEventListener(event, f), _.isIterable(els) ? els : [els]);
+
+        $.addClass = _.curry((name, el) => el.classList.add(name));
     </script>
 
     <script>
@@ -190,7 +192,7 @@
             <div class="images">
                 ${_.strMap(img => `
                 <div class="image">
-                    <div class="box"><img src="${img.url}" alt=""></div>
+                    <div class="box"><img src="" lazy-src="${img.url}" class="fade" alt=""></div>
                     <div class="name">${img.name}</div>
                     <div class="remove">x</div>
                 </div>
@@ -203,6 +205,15 @@
             Images.tmpl,
             $.el,
             $.append($.qs('body')),
+            _.tap(
+                $.findAll('img'),
+                L.map(img => new Promise(resolve => {
+                    img.onload = () => resolve(img);
+                    img.src = img.getAttribute('lazy-src');
+                })),
+                C.takeAll,
+                _.each($.addClass('fade-in'))
+            ),
             $.findAll('.remove'),
             $.on('click', async ({ currentTarget: ct }) =>
                 await Ui.confirm('정말 삭제하시겠습니까?') &&
@@ -246,8 +257,6 @@
         Ui.alert = Ui.message([
             { name: '확인', type: 'ok', value: true },
         ]);
-
-        // Ui.confirm('삭제하시겠습니까?')
     </script>
 </body>
 
