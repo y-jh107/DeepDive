@@ -40,9 +40,32 @@
         // _.takeUntil(a => !a),    // 처음 true인 값을 만날 때까지만 실행
         //     _.each(console.log));
 
+        // _.go(
+        //     [0, false, undefined, null, 10, 20, 30],
+        //     _.takeUntil(a => a),
+        //     _.each(console.log));
+    </script>
+
+    3. 할 일들을 이터러블(리스트)로 바라보기
+
+    <script>
+        const track = [
+            { cars: ['철수', '영희', '철희', '영수'] },
+            { cars: ['하든', '커리', '듀란트', '탐슨'] },
+            { cars: ['폴', '어빙', '릴라드', '맥컬럼'] },
+            { cars: ['스파이더맨', '아이언맨'] },
+            { cars: [] }
+        ];
+
         _.go(
-            [0, false, undefined, null, 10, 20, 30],
-            _.takeUntil(a => a),
+            L.range(Infinity),
+            L.map(i => track[i]),
+            L.map(({cars}) => cars),
+            L.map(_.delay(2000)),
+            L.takeWhile(({length: l}) => l == 4),
+            // L.takeUntil(({length: l}) => l < 4),
+            L.flat,
+            L.map(car => `${car} 출발!`),
             _.each(console.log));
     </script>
 </body>
