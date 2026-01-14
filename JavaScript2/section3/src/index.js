@@ -187,11 +187,39 @@
 // add(10, 15);
 // console.log(sum); // error
 
-let sum = 0;
+// let sum = 0;
 
-function add(num1, num2) {
-  sum = num1 + num2;
-}
+// function add(num1, num2) {
+//   sum = num1 + num2;
+// }
 
-add(10, 15);
-console.log(sum); //25
+// add(10, 15);
+// console.log(sum); //25
+
+// const num = 10; //전역 스코프
+
+// function print() {
+//   const num = 100; //지역 스코프
+//   console.log(`지역 스코프 ${num}`);
+// }
+
+// print();
+// console.log(`전역 스코프 ${num}`);
+
+// function print() {
+//   for (let i = 0; i < 10; i++) {
+//     console.log(`블록 스코프 : ${i}`);
+//   }
+//   console.log(i); //ERROR
+// }
+
+// print();
+
+function print() {
+  for (var i = 0; i < 10; i++) {
+    console.log(`블록 스코프 : ${i}`);
+  }
+  console.log(i);
+} // var는 함수 스코프이기 때문에 에러가 발생하지 않음
+
+print();
