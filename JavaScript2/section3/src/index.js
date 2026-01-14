@@ -241,3 +241,26 @@
 // console.log(num2); // error
 
 // const num2 = 15;
+
+// print(); // hello world
+
+// function print() {
+//     console.log("hello world");
+// }
+
+// print(); //print is not a function
+
+// let print = function () {
+//   console.log("hello world");
+// };
+
+// function start(name, callback) {
+//   console.log(`안녕하세요 ${name} 입니다.`);
+//   callback(); // finish();
+// }
+
+// function finish() {
+//   console.log("감사합니다.");
+// }
+
+// start("jinhyuk", finish);
