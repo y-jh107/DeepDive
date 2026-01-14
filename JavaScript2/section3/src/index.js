@@ -215,11 +215,29 @@
 
 // print();
 
-function print() {
-  for (var i = 0; i < 10; i++) {
-    console.log(`블록 스코프 : ${i}`);
-  }
-  console.log(i);
-} // var는 함수 스코프이기 때문에 에러가 발생하지 않음
+// function print() {
+//   for (var i = 0; i < 10; i++) {
+//     console.log(`블록 스코프 : ${i}`);
+//   }
+//   console.log(i);
+// } // var는 함수 스코프이기 때문에 에러가 발생하지 않음
 
-print();
+// print();
+
+// print();
+
+// function print() {
+//   console.log("hello world");
+// }
+
+// console.log(num); // undefined
+
+// var num = 10;
+
+// console.log(num1); // error
+
+// let num1 = 10;
+
+// console.log(num2); // error
+
+// const num2 = 15;
