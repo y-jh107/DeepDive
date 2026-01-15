@@ -47,3 +47,79 @@
 // console.log(c4);
 
 // ----- 배열과 객체 구조분해할당
+
+const toy = {
+  type: "bear",
+  price: 15000,
+};
+
+// const blueToy = {
+//   type: "bear",
+//   price: 15000,
+//   color: "blue",
+// };
+
+// const yellowToy = {
+//   type: "bear",
+//   price: 15000,
+//   color: "yellow",
+// };
+
+// const blueToy = {
+//   ...toy,
+//   color: "blue",
+// };
+
+// const yellowToy = {
+//   ...toy,
+//   color: "yellow",
+// };
+
+// console.log(blueToy);
+// console.log(yellowToy);
+
+// const color1 = ["red", "orange", "yellow"];
+// const color2 = ["blue", "navy", "purple"];
+
+// const rainbow = [...color1, "green", ...color2];
+
+// console.log(rainbow);
+
+// ------ spread
+
+// const blueToy = {
+//   type: "bear",
+//   price: 15000,
+//   color: "blue",
+// };
+
+// const { type, price, color } = blueToy;
+
+// console.log(type);
+// console.log(price);
+// console.log(color);
+
+// const { type, ...rest } = blueToy;
+
+// console.log(type);
+// console.log(rest);
+
+// const color = ["red", "orange", "yellow", "green"];
+// const [c1, c2, ...rest] = color;
+
+// console.log(c1, c2);
+// console.log(rest);
+
+// const print = (a, b, ...rest) => {
+//   console.log(a, b, rest);
+// };
+
+// print(1, 2, 3, 4, 5, 6);
+
+const print = (...rest) => {
+  console.log(rest);
+};
+
+const numbers = [1, 2, 3, 4, 5, 6];
+// print(numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]);
+print(...numbers);
