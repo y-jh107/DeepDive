@@ -1,6 +1,6 @@
 import "./App.css";
 
-const element1 = <h2>Hello, world!</h2>;
+/* onst element1 = <h2>Hello, world!</h2>;
 const element2 = (
   <ul>
     <li>A</li>
@@ -18,8 +18,8 @@ function ElementExpressions() {
   );
 }
 
-/* console.log(element1);
-console.log(element2); */
+console.log(element1);
+console.log(element2); 
 
 // const language = "JavaScript";
 
@@ -92,13 +92,72 @@ function FunctionExpressions() {
       </p>
     </div>
   );
-}
+} */
+
+// const isLoggedIn = true;
+/* return (
+  <>
+    {isLoggedIn ? <h1>Hello!</h1> : <h1>Sign in</h1>}
+    {isLoggedIn ? (
+      <>
+        <h2>Welcome back!</h2>
+        <p>You are logged in. Enjoy your time here!</p>
+    </>
+    ) : (
+      <>
+      <h2>Hello, Guest!</h2>
+    <p>Please log in to access more features.</p>
+      </>
+    )}
+  </>
+); */
+
+/* function getUserContent(userStatus) {
+  return userStatus === "admin" ? (
+    <>
+      <h2>Admin Dashboard</h2>
+      <button>Manage Users</button>
+    </>
+  ) : userStatus === "member" ? (
+    <p>Welcome to the community!</p>
+  ) : (
+    <a href="/signup">Sign up here</a>
+  );
+} */
+
+/* const hasMessages = true;
+const message = null;
+
+<>
+  {hasMessages && <h2>You have new messages!</h2>}
+  {message && <p>Message: {message}</p>}
+
+  <p>Message: {message ?? <em>No message</em>}</p>
+  <p>Message: {message || <em>Empty</em>}</p>
+</>; */
 
 function App() {
+  const books = [
+    { id: 1, title: "React Basics", published: true, publisher: "Manning" },
+    { id: 2, title: "Advanced Hooks", published: false, publisher: "OReilly" },
+    { id: 3, title: "JSX in depth", published: true, publisher: "Packt" },
+  ];
+
+  const publisheds = books.filter((book) => book.published);
+
   return (
     <>
-      <h1>JSX</h1>
-      <ElementExpressions />
+      {publisheds.length > 0 && <h2>Published Books</h2>}
+      {publisheds.length ? (
+        publisheds.map((book) => (
+          <article key={book.id}>
+            <strong>{book.title}</strong>
+            <em> - {book.publisher}</em>
+          </article>
+        ))
+      ) : (
+        <p>No published books found.</p>
+      )}
     </>
   );
 }
