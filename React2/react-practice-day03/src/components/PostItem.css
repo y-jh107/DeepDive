@@ -24,6 +24,16 @@
   background-color: rgb(250, 190, 20);
 }
 
+.PostItem .not-release {
+  cursor: pointer;
+  color: black;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(240, 110, 29);
+}
+
 .PostItem .delete {
   cursor: pointer;
   color: gray;
