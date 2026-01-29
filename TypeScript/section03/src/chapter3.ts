@@ -1,64 +1,81 @@
 /**
- * Unknown 타입
+ * 기본 타입간의 호환성
  */
 
-function unknownExam() {
-  let a: unknown = 1;
-  let b: unknown = "hello";
-  let c: unknown = true;
-  let d: unknown = null;
-  let e: unknown = undefined;
+let num1: number = 10;
+let num2: 10 = 10;
 
-  let unknownVar: unknown;
-
-  //   let num: number = unknownVar;
-  //   let str: string = unknownVar;
-  //   let bool: boolean = unknownVar;
-}
+num1 = num2; // 업캐스팅
 
 /**
- * Never 타입
+ * 객체 타입간의 호환성
+ * -> 어떤 객체타입을 다른 객체타입으로 취급해도 괜찮은가?
  */
 
-function neverExam() {
-  function neverFunc(): never {
-    while (true) {}
-  }
+type Animal = {
+  name: string;
+  color: string;
+};
 
-  let num: number = neverFunc();
-  let str: string = neverFunc();
-  let bool: boolean = neverFunc();
+type Dog = {
+  name: string;
+  color: string;
+  breed: string;
+};
 
-  //   let never1: never = 10;
-  //   let never2: never = "string";
-  //   let never3: never = true;
-}
+let animal: Animal = {
+  name: "기린",
+  color: "yellow",
+};
+
+let dog: Dog = {
+  name: "돌돌이",
+  color: "brown",
+  breed: "진도",
+};
+
+animal = dog; // Animal 타입이 Dog 타입의 슈퍼서브가 됨(프로퍼티를 기준으로)
+
+// dog = animal;
+
+type Book = {
+  name: string;
+  price: number;
+};
+
+type ProgrammingBook = {
+  name: string;
+  price: number;
+  skill: string;
+};
+
+let book: Book;
+let programmingBook: ProgrammingBook = {
+  name: "한 입 크기로 잘라먹는 리액트",
+  price: 33000,
+  skill: "reactjs",
+};
+
+book = programmingBook;
+// programmingBook = book;
 
 /**
- * Void 타입
+ * 초과 프로퍼티 검사
  */
 
-function voidExam() {
-  function voidFunc(): void {
-    console.log("hi");
-  }
+let book2: Book = {
+  name: "한 입 크기로 잘라먹는 리액트",
+  price: 33000,
+  //   skill: "reactjs",
+};
 
-  let voidVar: void = undefined;
-}
+let book3: Book = programmingBook;
 
-/**
- * Any 타입
- */
+function func(book: Book) {}
+func({
+  name: "한 입 크기로 잘라먹는 리액트",
+  price: 33000,
+  //   skill: "reactjs",
+});
 
-function anyExam() {
-  let unknownVar: unknown;
-  let anyVar: any;
-  let undefinedVar: undefined;
-  let neverVar: never;
-
-  anyVar = unknownVar;
-
-  undefinedVar = anyVar;
-
-  //   neverVar = anyVar;
-}
+func(programmingBook);
