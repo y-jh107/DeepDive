@@ -1,0 +1,44 @@
+.PostItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.PostItem input {
+  width: 20px;
+}
+
+.PostItem .content {
+  flex: 1;
+}
+
+.PostItem .release {
+  cursor: pointer;
+  color: black;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(250, 190, 20);
+}
+
+.PostItem .not-release {
+  cursor: pointer;
+  color: black;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(240, 110, 29);
+}
+
+.PostItem .delete {
+  cursor: pointer;
+  color: gray;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}

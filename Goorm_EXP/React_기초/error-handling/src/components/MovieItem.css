@@ -1,0 +1,13 @@
+.MovieItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+
+.MovieItem > img {
+  width: 480px;
+  height: auto;
+  display: block;
+}
