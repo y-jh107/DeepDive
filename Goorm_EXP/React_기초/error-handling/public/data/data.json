@@ -1,0 +1,79 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "국제시장",
+      "type": "movie",
+      "creator": ["윤제균"],
+      "cast": [
+        "황정민",
+        "김윤진",
+        "오달수",
+        "정진영",
+        "장영남",
+        "라마란",
+        "김슬기"
+      ],
+      "genre": ["진한 여운을 남기는 영화"],
+      "features": ["감명을 주는", "달콤 쌉싸름", "감정을 파고드는"],
+      "backdropUrl": "https://media.themoviedb.org/t/p/w1000_and_h563_face/wcMlVCKjTIT3g3fQNo5iXo586mk.jpg",
+      "description": "한국 전쟁이 한창이던 시절, 피난길에 아버지와 헤어져 부산에 자리 잡은 덕수. 평생 동안 아버지와의 약속을 한시도 잊지 않는다. 아버지 대신 가족을 지키겠다는 그 약속을.",
+      "previewLink": "https://youtu.be/4TwmvNNlWqI",
+      "releaseYear": 2014,
+      "runningTime": 126
+    },
+    {
+      "id": 2,
+      "title": "그린 북",
+      "type": "movie",
+      "creator": ["피터 패럴리"],
+      "cast": [
+        "비고 모텐슨",
+        "마허샬라 알리",
+        "린다 카델리니",
+        "세바스찬 매니스캘코",
+        "디미터 마리노프",
+        "P.J. 번",
+        "마이크 해튼",
+        "조 코테즈"
+      ],
+      "genre": [
+        "코미디 블록버스터 영화",
+        "미국 작품",
+        "코미디 영화",
+        "사회 이슈를 다루는 드라마 장르 영화"
+      ],
+      "features": ["감상적", "진심 어린"],
+      "backdropUrl": "https://media.themoviedb.org/t/p/w1000_and_h563_face/yJCOTcyVyO6J5OJhaSH9gmUqVlh.jpg",
+      "description": "교양 있고 우아한 피아니스트와 산전수전 다 겪은 운전기사. 인종 차별이 만연한 남부 지역으로 콘서트 투어를 떠난 두 사람 사이에 어느새 인종을 뛰어넘는 우정이 싹튼다.",
+      "previewLink": "https://youtu.be/qtGBWKR9QhY",
+      "releaseYear": 2018,
+      "runningTime": 130
+    },
+    {
+      "id": 3,
+      "title": "기생충",
+      "type": "movie",
+      "creator": ["봉준호"],
+      "cast": [
+        "송강호",
+        "이선균",
+        "조여정",
+        "최우식",
+        "박소담",
+        "이정은",
+        "장혜진",
+        "박명훈",
+        "정지소",
+        "정현준"
+      ],
+      "genre": ["코미디 영화", "스릴러 영화"],
+      "features": ["어두운"],
+      "backdropUrl": "https://media.themoviedb.org/t/p/w1000_and_h563_face/hiKmpZMGZsrkA3cdce8a7Dpos1j.jpg",
+      "description": "반지하에서 근근이 먹고 살던 가족. 우연히 생긴 알바로 부잣집에 발을 들이더니, 어느덧 온 식구가 저택 곳곳의 밥줄을 꿰찬다. 공간도 계단도 남아돌잖아요. 그러니 우리 같이 나눠 씁시다.",
+      "previewLink": "https://youtu.be/jBdRhhSt3Bc",
+      "releaseYear": 2019,
+      "runningTime": 132
+    }
+  ]
+}

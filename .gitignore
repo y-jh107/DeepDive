@@ -1,8 +1,15 @@
 .DS_Store
 
-# Next.js
-NEXT.js/section02/.next
-NEXT.js/section02/node_modules
+#NEXT.js
+/NEXT.js/*/.next
+/NEXT.js/*/node_modules
 
 #TypeScript
-TypeScript/*/node_modules
+/TypeScript/*/node_modules
+
+#React
+/React/*/node_modules
+
+#Goorm_EXP
+/Goorm_EXP/*/*/node_modules
+/Goorm_EXP/*/*/.vscode
