@@ -60,10 +60,6 @@ Java(Spring) 백엔드부터 React / Next.js 프론트엔드까지
 
 - [ ] React 기본 컴포넌트 설계
 - [ ] Next.js 라우팅 및 데이터 패칭
-- [ ] Spring Boot 기본 구조 정리
-- [ ] REST API CRUD 구현
-- [ ] JPA 연관관계 실습
-- [ ] 간단한 풀스택 연동 프로젝트
 
 ---
 
