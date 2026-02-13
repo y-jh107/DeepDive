@@ -12,7 +12,15 @@ test("update product's total when products change", async () => {
   const americaInput = await screen.findByRole("spinbutton", {
     name: "America",
   });
-  userEvent.clear();
+  userEvent.clear(americaInput);
   userEvent.type(americaInput, "1");
   expect(productsTotal).toHaveTextContent("1000");
+
+  // England 여행 상품 3개 더 올리기
+  const englandInput = await screen.findByRole("spinbutton", {
+    name: "England",
+  });
+  userEvent.clear(englandInput);
+  userEvent.type(englandInput, "3");
+  expect(productsTotal).toHaveTextContent("4000");
 });
