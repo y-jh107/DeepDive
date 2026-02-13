@@ -1,6 +1,6 @@
 const { createContext, useState, useMemo, useEffect } = require("react");
 
-const OrderContext = createContext();
+export const OrderContext = createContext();
 
 const pricePerItem = {
   products: 1000,
