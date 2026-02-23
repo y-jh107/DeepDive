@@ -13,5 +13,10 @@ export default defineConfig({
   server: {
     port: 4000,
     strict: true,
-  }
+    proxy: {
+      "/products": "http://localhost:5000",
+      "/options": "http://localhost:5000",
+      "/order": "http://localhost:5000",
+    },
+  },
 });

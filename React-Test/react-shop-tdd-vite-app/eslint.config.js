@@ -11,6 +11,7 @@ export default defineConfig([
       "js/recommended",
       "plugin:testing-library/react",
       "plugin:vitest/recommended",
+      "plugin:react/jsx-runtime",
     ],
     languageOptions: { globals: globals.browser },
     rules: {
