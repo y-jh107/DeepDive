@@ -3,29 +3,30 @@ import userEvent from "@testing-library/user-event";
 import App from "./App";
 
 test("From order to order completion", async () => {
+  const user = userEvent.setup();
   render(<App />);
 
   const americaInput = await screen.findByRole("spinbutton", {
     name: "America",
   });
-  userEvent.clear(americaInput);
-  userEvent.type(americaInput, "2");
+  await user.clear(americaInput);
+  await user.type(americaInput, "2");
 
   const englandInput = await screen.findByRole("spinbutton", {
     name: "England",
   });
-  userEvent.clear(englandInput);
-  userEvent.type(englandInput, "3");
+  await user.clear(englandInput);
+  await user.type(englandInput, "3");
 
   const insuranceCheckbox = await screen.findByRole("checkbox", {
     name: "Insurance",
   });
-  userEvent.click(insuranceCheckbox);
+  await user.click(insuranceCheckbox);
 
   const orderButton = screen.getByRole("button", {
     name: "주문하기",
   });
-  userEvent.click(orderButton);
+  await user.click(orderButton);
 
   // ======== 주문 확인 페이지 ========
   const summaryHeading = screen.getByRole("heading", { name: "주문 확인" });
@@ -48,12 +49,12 @@ test("From order to order completion", async () => {
   const confirmCheckbox = screen.getByRole("checkbox", {
     name: "주문하려는 것을 확인하셨나요?",
   });
-  userEvent.click(confirmCheckbox);
+  await user.click(confirmCheckbox);
 
   const confirmOrderButton = screen.getByRole("button", {
     name: "주문 확인",
   });
-  userEvent.click(confirmOrderButton);
+  await user.click(confirmOrderButton);
 
   // ======== 주문 완료 페이지 ========
   const loading = screen.getByText(/loading/i);
@@ -70,7 +71,7 @@ test("From order to order completion", async () => {
   const firstPageButton = screen.getByRole("button", {
     name: "첫페이지로",
   });
-  userEvent.click(firstPageButton);
+  await user.click(firstPageButton);
 
   const productsTotal = screen.getByText("상품 총 가격: 0");
   expect(productsTotal).toBeInTheDocument();
