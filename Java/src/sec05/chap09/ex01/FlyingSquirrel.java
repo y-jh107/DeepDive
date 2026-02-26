@@ -1,6 +1,6 @@
 package sec05.chap09.ex01;
 
-public class FlyingSquirrel extends Mammal implements Flyer {
+public class FlyingSquirrel extends Mamal implements Flyer {
     public FlyingSquirrel() {
         super(false);
     }
