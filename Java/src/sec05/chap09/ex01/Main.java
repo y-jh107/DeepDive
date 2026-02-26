@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         //  ⭐ 다형성
         PolarBear polarBear = new PolarBear();
-        Mammal mammal = polarBear;
+        Mamal mamal = polarBear;
         Swimmer swimmer = polarBear;
 
         GlidingLizard glidingLizard = new GlidingLizard();

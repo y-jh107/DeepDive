@@ -1,6 +1,6 @@
 package sec05.chap09.ex01;
 
-public class PolarBear extends Mammal implements Hunter, Swimmer {
+public class PolarBear extends Mamal implements Hunter, Swimmer {
     public PolarBear() {
         super(false);
     }
