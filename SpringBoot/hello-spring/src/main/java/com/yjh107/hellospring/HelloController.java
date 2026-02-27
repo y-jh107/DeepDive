@@ -1,6 +1,7 @@
 package com.yjh107.hellospring;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,6 +18,15 @@ public class HelloController {
     public User getUser() {
         User user = new User("Jinhyuk", 28);
         return user;
+    }
+
+    @GetMapping("/user/{id}")
+    public User getUser(
+            @PathVariable Long id
+    ) {
+        String name = "Jinhyuk" + id;
+        int age = 20 + id.intValue();
+        return new User(name, age);
     }
 
     @GetMapping("/users")
