@@ -37,12 +37,7 @@ public class Main {
         Arrays.sort(nums, new CloseToInt(5));
 
         //  ⭐️ 익명 클래스, 이후 배울 람다로 더 간편하게
-        Arrays.sort(strs, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
+        Arrays.sort(strs, (o1, o2) -> o1.length() - o2.length());
 
         //  💡 ArrayList도 sort 메소드 사용 가능
         ArrayList<Integer> numsAry = new ArrayList<>(Arrays.asList(nums));
